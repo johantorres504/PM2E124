@@ -1,14 +1,23 @@
 package com.example.pm2e124;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -19,7 +28,11 @@ public class MainActivity extends AppCompatActivity {
  //    uthLogo = findViewById(R.id.uthlogo);
         Button salvar, salvados;
         EditText nombres, telefono,nota,pais;
-
+            static final int peticion_captura_imagen = 100;
+            static final int peticion_acceso_cam = 201;
+            ImageView imageView;
+            Button btntakephoto;
+            String PathImagen;
     private void config()
     {
         nombres = (EditText) findViewById(R.id.txtEditName);
@@ -33,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         config();
 
@@ -93,6 +107,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
     }
+
+
+
+
+    private void tomarfoto() {
+        Intent intentfoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        if(intentfoto.resolveActivity(getPackageManager())!= null)
+        {
+            startActivityForResult(intentfoto, peticion_captura_imagen);
+        }
+    }
+
+
+
 
     private void AgregarContactos() {
         SQLiteConexion conexion = new SQLiteConexion(this, Transacciones.NameDatabase, null, 1);
