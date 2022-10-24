@@ -53,10 +53,11 @@
         android:id="@+id/imageView2"
         android:layout_width="131dp"
         android:layout_height="113dp"
+        android:layout_marginTop="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_report_image"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintTop_toBottomOf="@+id/uthLogo"
+        app:srcCompat="@android:drawable/ic_menu_report_image" />
 
     <TextView
         android:id="@+id/txtPais"
@@ -81,7 +82,7 @@
         android:textColor="#0B0B0B"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="316dp" />
+        app:layout_constraintTop_toBottomOf="@+id/paises" />
 
     <TextView
         android:id="@+id/txtnot"
