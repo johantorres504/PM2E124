@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PM2E124</string>
+
+    <string name="pais">País</string>
+    <string name="nombre">Nombre</string>
+    <string name="telefono">Teléfono</string>
+    <string name="nota">Nota</string>
+    <string name="espacio"> </string>
+    <string name="salvar"> Salvar Contactos</string>
+    <string name="salvados"> Contactos Salvados</string>
+    <string name="Agregar"> Agregar</string>
+    <string name="Lista"> Lista</string>
+</resources>
